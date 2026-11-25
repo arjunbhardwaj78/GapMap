@@ -1,0 +1,84 @@
+/* GapMap landing + sign-in redesign. Loaded after app.css. Pure CSS, no images, no external fonts. */
+body.intro,body.auth-page{background:radial-gradient(1100px 600px at 12% -10%,#cfe9e2 0,transparent 60%),radial-gradient(900px 600px at 105% 10%,#e4dcf7 0,transparent 55%),radial-gradient(900px 500px at 50% 115%,#fbe9c6 0,transparent 60%),var(--bg)}
+.hero{min-height:100vh;display:grid;place-items:center;padding:28px 20px;position:relative;z-index:1}
+.hero-grid{max-width:1120px;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.hero .brand{font-size:1.35rem}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;margin-top:22px;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-e);background:#d9efec;padding:6px 14px;border-radius:999px}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 0 rgba(67,160,111,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(67,160,111,0)}100%{box-shadow:0 0 0 0 rgba(67,160,111,0)}}
+.hero h1{font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.08;letter-spacing:-.02em;margin:14px 0 10px;font-family:"Segoe UI Variable Display","Segoe UI",sans-serif}
+.hero h1 .hl{background:linear-gradient(120deg,var(--teal) 0,var(--plum) 60%,var(--rose) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:shine 6s ease-in-out infinite alternate}
+@keyframes shine{to{background-position:100% 0}}
+.hero .hi-line{font-size:1.15rem;font-weight:650;color:var(--plum-e);margin-bottom:6px}
+.hero .lead{font-size:1.05rem;max-width:34em}
+.demo{position:relative;margin-top:30px;max-width:460px}
+.demo .slab{position:relative;z-index:2;padding:20px 22px}
+.demo .q{font-weight:700;margin-bottom:12px}
+.demo .o{display:flex;gap:10px;align-items:center;padding:9px 12px;border-radius:12px;border:2px solid var(--line);margin-top:8px;background:#fff;font-size:.97rem}
+.demo .o b{width:24px;height:24px;border-radius:8px;display:grid;place-items:center;background:#e3ece9;font-size:.8rem}
+.demo .o.pick{animation:pickit 9s infinite}
+@keyframes pickit{0%,18%{border-color:var(--line);background:#fff}25%,92%{border-color:var(--rose);background:#fdeceb}100%{border-color:var(--line);background:#fff}}
+.demo .tag{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;min-height:34px}
+.demo .tag span{opacity:0;transform:translateY(8px) scale(.96);animation:popin 9s infinite}
+.demo .tag span:nth-child(2){animation-name:popin2}
+@keyframes popin{0%,34%{opacity:0;transform:translateY(8px) scale(.96)}42%,92%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes popin2{0%,56%{opacity:0;transform:translateY(8px) scale(.96)}64%,92%{opacity:1;transform:none}100%{opacity:0}}
+.demo .float{position:absolute;z-index:1;border-radius:20px;opacity:.9}
+.demo .f1{width:120px;height:120px;background:var(--sun);right:-26px;top:-26px;transform:rotate(12deg);animation:bob 6s ease-in-out infinite}
+.demo .f2{width:86px;height:86px;background:var(--plum);left:-22px;bottom:-22px;transform:rotate(-10deg);animation:bob 7s ease-in-out infinite reverse}
+@keyframes bob{50%{translate:0 -10px}}
+.pick-panel{position:relative;z-index:1}
+.pick-panel .ask{font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pick-panel h2{font-size:1.7rem;margin:4px 0 16px}
+.hero .roles{display:flex;flex-direction:column;gap:18px;margin-top:0;perspective:900px}
+.hero .tile.role{flex-direction:row;align-items:center;gap:16px;padding:18px 20px;position:relative;overflow:hidden;text-decoration:none}
+.hero .tile.role h2{font-size:1.15rem;margin:0}
+.hero .tile.role p{font-size:.9rem;line-height:1.35;margin-top:2px}
+.hero .tile.role .go{margin-left:auto;font-size:1.5rem;font-weight:700;color:var(--muted);transition:transform .2s,color .2s}
+.hero .tile.role:hover .go{transform:translateX(6px);color:var(--ink)}
+.hero .tile.role::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--c)}
+.hero .tile.role.blue{--c:var(--blue)} .hero .tile.role.leaf{--c:var(--leaf)} .hero .tile.role.plum{--c:var(--plum)}
+.trust{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.trust .chip{background:#fff;box-shadow:0 2px 0 var(--slab)}
+/* sign in */
+.auth{min-height:100vh;display:grid;place-items:center;padding:24px 16px;position:relative;z-index:1}
+.auth-card{max-width:900px;width:100%;display:grid;grid-template-columns:1fr 1fr;border-radius:26px;overflow:hidden;background:var(--paper);box-shadow:0 8px 0 var(--slab),0 30px 50px -18px rgba(31,52,55,.4)}
+.auth-side{position:relative;color:#fff;padding:34px 30px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;overflow:hidden;background:linear-gradient(150deg,var(--c1),var(--c2))}
+.auth-side.teacher{--c1:#3B82C4;--c2:#2E8B8B} .auth-side.student{--c1:#43A06F;--c2:#2E8B8B} .auth-side.parent{--c1:#7C69C4;--c2:#B35FA8}
+.auth-side::before,.auth-side::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.14)}
+.auth-side::before{width:260px;height:260px;right:-90px;top:-80px;animation:bob 8s ease-in-out infinite}
+.auth-side::after{width:180px;height:180px;left:-60px;bottom:-60px;animation:bob 9s ease-in-out infinite reverse}
+.auth-side>*{position:relative;z-index:1}
+.auth-side .brand{color:#fff}
+.auth-side h2{font-size:1.9rem;line-height:1.15;margin-bottom:8px}
+.auth-side .hi{font-weight:650;opacity:.95}
+.auth-side ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:.97rem}
+.auth-side li{display:flex;gap:10px;align-items:flex-start}
+.auth-side li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.25);display:grid;place-items:center;font-size:.8rem;font-weight:800}
+.auth-main{padding:34px 32px}
+.auth-main .back{display:inline-block;margin-bottom:14px;font-size:.92rem;text-decoration:none;color:var(--muted)}
+.auth-main .back:hover{color:var(--ink)}
+.auth-main h1{font-size:1.6rem;margin-bottom:4px}
+.pwrap{position:relative}
+.pwrap input{padding-right:78px}
+.pwrap button{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:#eaf1ef;border-radius:10px;padding:5px 12px;font:inherit;font-size:.85rem;font-weight:650;color:var(--ink);cursor:pointer}
+.swap{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;justify-content:center}
+.swap a{font-size:.85rem;text-decoration:none;padding:5px 12px;border-radius:999px;background:#e8f0ed;color:var(--ink)}
+.swap a:hover{background:#d5e4e0}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr;gap:30px}.auth-card{grid-template-columns:1fr}.auth-side{padding:24px}.auth-side ul{display:none}.auth-main{padding:26px 22px}}
+@media (prefers-reduced-motion:reduce){.hero h1 .hl,.demo .o.pick,.demo .tag span,.demo .float,.auth-side::before,.auth-side::after,.eyebrow i{animation:none}.demo .tag span{opacity:1;transform:none}.demo .o.pick{border-color:var(--rose);background:#fdeceb}}
+.hero .tile.role .ico{flex:none}.hero .hi-line{margin-top:10px}
+@media (max-width:860px){.demo{display:none}.hero .lead{font-size:1rem}.hero{align-items:start}}
+/* 3D stage above the role cards */
+.stage3d{position:relative;height:clamp(150px,24vh,240px);border-radius:22px;margin-bottom:22px;overflow:hidden;background:linear-gradient(150deg,#d9efec 0,#e4dcf7 60%,#fbe9c6 100%);box-shadow:0 5px 0 var(--slab),0 18px 30px -16px rgba(31,52,55,.35)}
+.stage3d.no3d{display:none}
+@media (max-width:860px){.stage3d{height:150px;margin-bottom:16px}}
+/* whole-page 3D background: the cards become frosted glass so the objects show through */
+.bg3d{position:fixed;inset:0;z-index:0;pointer-events:none}
+.bg3d.no3d{display:none}
+.hero,.auth{isolation:isolate}
+.hero-grid,.auth-card{position:relative;z-index:1}
+.bg3d.is-3d ~ .hero-grid .tile.role,.bg3d.is-3d ~ .hero-grid .demo .slab{background:rgba(248,251,250,.74);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.bg3d.is-3d ~ .auth-card{background:rgba(248,251,250,.5)}
+.bg3d.is-3d ~ .auth-card .auth-main{background:rgba(248,251,250,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.bg3d.is-3d ~ .hero-grid .eyebrow,.bg3d.is-3d ~ .hero-grid .trust .chip{background:rgba(255,255,255,.7);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}

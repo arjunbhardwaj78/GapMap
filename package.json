@@ -1,0 +1,27 @@
+{
+  "name": "gapmapantigravity",
+  "version": "1.0.0",
+  "description": "GapMap - AI-Powered Learning Gap Diagnoser for Teachers",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node verify.test.js && node test-engine.js && node test-core.js && node test-extras.js && node test-gemini.js && node test-concept.js && node test-choice.js && node test-openrouter.js && node test-family.js && node test-alerts.js && node test-alerts-engine.js && node test-reports.js && node test-contacts.js && node test-summary.js && node test-features.js && node test-hindi.js && node test-chat.js",
+    "test:api": "node test-api.js"
+  },
+  "keywords": [
+    "education",
+    "diagnostic",
+    "learning-gaps",
+    "hackathon"
+  ],
+  "author": "GapMap Team",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "multer": "^2.4.0",
+    "mathjs": "^13.0.0"
+  }
+}
